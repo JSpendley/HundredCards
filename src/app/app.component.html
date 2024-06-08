@@ -1,5 +1,5 @@
-@if(posts$ | async; as posts) {
-  
-  @for (post of posts; track post.id){
-<div>{{ post.id }}</div>
-} }
+@if (posts$ | async; as posts) {
+  @for (post of posts; track post.id) {
+    <div>{{ post.id }}</div>
+  }
+}
