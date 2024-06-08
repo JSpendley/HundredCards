@@ -4,3 +4,5 @@ export interface userPostDTO {
   title: string;
   body: string;
 }
+
+export interface userPost extends userPostDTO {}
