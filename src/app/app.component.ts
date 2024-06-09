@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { postsService } from './services/posts.service';
 import { Observable } from 'rxjs';
-import { userPost } from './interfaces/dto.interface';
 import { CommonModule } from '@angular/common';
+import { Store } from '@ngrx/store';
+import { PostsState } from './store/reducers/posts.reducer';
+import { PostsActions } from './store/actions/posts.actions';
+import { selectPosts } from './store/selectors/posts.selectors';
 
 @Component({
   selector: 'app-root',
@@ -13,14 +15,13 @@ import { CommonModule } from '@angular/common';
   styleUrl: './app.component.scss',
 })
 export class AppComponent implements OnInit {
-  title = 'HundredCards';
-  posts$: Observable<userPost[]> = this.postsService.getUserPosts();
+  title = 'Hundred Cards';
+  posts$: Observable<any> | undefined;
 
-  constructor(private postsService: postsService) {}
+  constructor(private store: Store<PostsState>) {}
 
   ngOnInit(): void {
-    this.posts$.subscribe((post) => {
-      debugger;
-    });
+    this.store.dispatch(PostsActions.getPostList());
+    this.posts$ = this.store.select(selectPosts);
   }
 }
