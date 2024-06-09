@@ -32,7 +32,8 @@ export class AppComponent implements OnInit {
     this.selectedPostId$ = this.store.select(selectCurrentPostId);
   }
 
-  setCurrentPost(post: userPost) {
+  setCurrentPost($event: Event, post: userPost) {
     this.store.dispatch(setCurrentPost({ post }));
+    $event.preventDefault();
   }
 }
