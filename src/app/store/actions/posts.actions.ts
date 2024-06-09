@@ -6,7 +6,7 @@ import {
 } from '@ngrx/store';
 import { userPost } from '../../interfaces/dto.interface';
 
-export const PostsActions = createActionGroup({
+export const PostsAPIActions = createActionGroup({
   source: 'Posts API',
   events: {
     'Get Post List': emptyProps(),
@@ -14,3 +14,8 @@ export const PostsActions = createActionGroup({
     'Get Post List Failure': (error: Error) => ({ error }),
   },
 });
+
+export const setCurrentPost = createAction(
+  'Set Current Post',
+  props<{ post: userPost }>()
+);

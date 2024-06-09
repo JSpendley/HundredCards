@@ -1,5 +1,33 @@
-@if (posts$ | async; as posts) {
-  @for (post of posts; track post.id) {
-    <div class="text-3xl font-bold underline">{{ post.id }}</div>
-  }
+@if (selectedPostId$ | async; as selectedPostId) {
+  <section class="bg-white dark:bg-gray-900">
+    <div class="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16">
+      <p
+        class="mb-8 text-lg font-normal text-gray-500 lg:text-xl sm:px-16 lg:px-48 dark:text-gray-400">
+        The ID for your selected post is
+      </p>
+      <h1
+        class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
+        {{ selectedPostId }}
+      </h1>
+      <div class="opacity-0 text-indigo-600 font-medium animate-fadeIn">
+        pretty amazing right?
+      </div>
+    </div>
+  </section>
+} @else {
+  <section class="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16">
+    <p
+      class="mb-8 text-lg font-bold text-gray-900 lg:text-xl sm:px-16 lg:px-48 dark:text-gray-400">
+      Click one of the cards for something amazing!
+    </p>
+  </section>
 }
+
+<div
+  class="grid lg:grid-cols-10 gap-2 md:grid-cols-5 sm:grid-cols-1 auto-rows-max">
+  @if (posts$ | async; as posts) {
+    @for (post of posts; track post.id) {
+      <app-post (click)="setCurrentPost(post)" [post]="post"></app-post>
+    }
+  }
+</div>

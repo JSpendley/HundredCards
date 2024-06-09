@@ -7,3 +7,7 @@ export const selectPostsState =
   createFeatureSelector<PostsState>(postsStateKey);
 
 export const selectPosts = createSelector(selectPostsState, selectAll);
+export const selectCurrentPostId = createSelector(
+  selectPostsState,
+  state => state.selectedPost?.id
+);
