@@ -1,5 +1,5 @@
 @if (selectedPostId$ | async; as selectedPostId) {
-  <section class="bg-white dark:bg-gray-900">
+  <section class="bg-white dark:bg-gray-900 h-60">
     <div class="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16">
       <p
         class="mb-8 text-lg font-normal text-gray-500 lg:text-xl sm:px-16 lg:px-48 dark:text-gray-400">
@@ -15,7 +15,7 @@
     </div>
   </section>
 } @else {
-  <section class="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16">
+  <section class="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 h-60">
     <p
       class="mb-8 text-lg font-bold text-gray-900 lg:text-xl sm:px-16 lg:px-48 dark:text-gray-400">
       Click one of the cards for something amazing!
@@ -24,10 +24,13 @@
 }
 
 <div
-  class="grid lg:grid-cols-10 gap-2 md:grid-cols-5 sm:grid-cols-1 auto-rows-max">
+  class="grid lg:grid-cols-10 gap-2 md:grid-cols-5 sm:grid-cols-1 auto-rows-max p-4 break-words justify-items-center">
   @if (posts$ | async; as posts) {
     @for (post of posts; track post.id) {
-      <app-post (click)="setCurrentPost(post)" [post]="post"></app-post>
+      <app-post
+        (click)="setCurrentPost(post)"
+        [post]="post"
+        class="w-full"></app-post>
     }
   }
 </div>
