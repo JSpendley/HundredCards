@@ -30,3 +30,4 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 node v 18+
 execution policy powershell
+talk about signals in ngrx

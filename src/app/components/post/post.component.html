@@ -1,7 +1,11 @@
 <a
+  (click)="increment()"
   href="#"
   class="block p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 h-full w-full">
+  <p class="font-normal text-gray-700 dark:text-gray-400 font-extrabold">
+    {{ postEntries[currentIndex][0] }}
+  </p>
   <p class="font-normal text-gray-700 dark:text-gray-400">
-    {{ post?.title }}
+    {{ postEntries[currentIndex][1] }}
   </p>
 </a>
