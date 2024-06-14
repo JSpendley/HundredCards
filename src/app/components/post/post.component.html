@@ -1,11 +1,11 @@
 <a
   (click)="increment()"
   href="#"
-  class="block p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 h-full w-full">
-  <p class="font-normal text-gray-700 dark:text-gray-400 font-extrabold">
-    {{ postEntries[currentIndex][0] }}
+  class="block h-full w-full p-6 text-gray-400 border border-gray-300 transition-colors ease-in-out duration-400 rounded-lg shadow bg-gray-800 dark:text-gray-700 dark:bg-gray-300 dark:border-gray-700 dark:hover:bg-gray-700 hover:bg-gray-200 hover:text-gray-700 hover:dark:text-gray-200">
+  <p class="text-center font-extrabold">
+    {{ postEntries[currentIndexSignal()][0] }}
   </p>
-  <p class="font-normal text-gray-700 dark:text-gray-400">
-    {{ postEntries[currentIndex][1] }}
+  <p class="text-center">
+    {{ postEntries[currentIndexSignal()][1] }}
   </p>
 </a>
