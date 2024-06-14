@@ -47,13 +47,13 @@ export class PostComponent implements OnInit, OnDestroy {
       .subscribe(postId => this.resetPostDisplayIfNotSelected(postId));
   }
 
-  private resetPostDisplayIfNotSelected(postId: number | undefined) {
+  resetPostDisplayIfNotSelected(postId: number | undefined) {
     if (postId !== this.post.id) {
       this.currentIndexSignal.set(this.initialDisplayIndexSignal());
     }
   }
 
-  private getFirstDisplayEntryIndex(
+  getFirstDisplayEntryIndex(
     postEntries: [string, any][],
     entryToDisplayFirstKey: string
   ): number {

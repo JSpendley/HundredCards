@@ -75,7 +75,7 @@ describe('AppComponent', () => {
       body: 'test',
     };
     const dispatchSpy = spyOn(store, 'dispatch');
-    component.setCurrentPost(post);
+    component.setCurrentPost(new Event('click'), post);
     expect(dispatchSpy).toHaveBeenCalledWith(setCurrentPost({ post }));
   });
 });
