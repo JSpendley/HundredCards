@@ -62,7 +62,7 @@ const b = function(){
     return {name, surname}
 }
 
-const a = { ...b}
+const a = { ...b()}
 ```
 
 **Pros and cons of immutability**
